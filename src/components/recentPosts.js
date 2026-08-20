@@ -1,16 +1,33 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+import Post from './post';
 
 class RecentPosts extends Component {
+  componentDidMount() {
+    this.props.fetchRecentPosts();
+  }
+
+ renderPosts() {
+  const posts = this.props.recentPosts.map((post, index) => {
+    if (index < 3) {
+      return <Post key={index} {...post} />;
+    }
+  });
+
+  return posts;
+}
+
   render() {
+    console.log(this.props.recentPosts);
+
     return (
-      <div className="recent-posts">
-        <div className="recent-posts__wrapper">
-          <div className="recent-posts__heading">Recent Posts</div>
+      <div>
+        <div>
+          Recent Posts
 
           <ul className="recent-posts__posts">
-            <li>recent post 0</li>
-            <li>recent post 1</li>
-            <li>recent post 2</li>
+            {this.renderPosts()}
           </ul>
         </div>
       </div>
@@ -18,4 +35,10 @@ class RecentPosts extends Component {
   }
 }
 
-export default RecentPosts;
+function mapStateToProps(state) {
+  return {
+    recentPosts: state.posts.recentPosts
+  };
+}
+
+export default connect(mapStateToProps, actions)(RecentPosts);
