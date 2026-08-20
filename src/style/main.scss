@@ -8,7 +8,7 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: inherit;
-    font-family: 'montserrat';
+    font-family: 'Lato', sans-serif;
 }
 
 body {
@@ -19,6 +19,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     -webkit-tap-highlight-color: transparent;
+    font-family: 'Lato', sans-serif;
+}
+
+.home {
 }
 
 .app {
@@ -26,6 +30,7 @@ body {
     display: grid;
     justify-items: center;
 }
+
 .logo-main {
   img {
     width: 105px;
