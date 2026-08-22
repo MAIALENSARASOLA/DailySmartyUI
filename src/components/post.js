@@ -58,7 +58,9 @@ class Post extends Component {
             {this.renderTopics()}
           </div>
           <div className="result-post__title">
-            {this.props.title}
+            <a href={this.props.url_for_post}>
+              {this.props.title}
+            </a>
           </div>
           <AnimateHeight
             duration={500}
